@@ -328,31 +328,6 @@ void Dlg::Notify()
 	initRudder = m_SliderRudder->GetValue();
 
 	double myRudder = initRudder - 30;
-	if (myRudder < 0){
-		initRudder -= 30.0;
-		myRudder = std::abs(initRudder);
-		myDir -= myRudder;
-		double myPortRudder = 30 - std::abs(myRudder);
-		m_gaugeRudderPort->SetValue(myPortRudder);
-		m_textCtrlRudderPort->SetValue(wxString::Format(_T("%.0f"), myRudder) + _T(" P"));
-		m_gaugeRudderStbd->SetValue(0);
-		m_textCtrlRudderStbd->SetValue(_T(""));
-	}
-	else if (myRudder >= 0){
-
-		initRudder -= 30;
-		myDir += initRudder;
-		m_gaugeRudderStbd->SetValue(myRudder);
-		if (myRudder == 0){
-			m_textCtrlRudderStbd->SetValue(_T(""));
-		}
-		else {
-			m_textCtrlRudderStbd->SetValue(wxString::Format(_T("%.0f"), myRudder) + _T(" S"));
-		}
-		m_gaugeRudderPort->SetValue(0);
-		m_textCtrlRudderPort->SetValue(_T(""));
-
-	}
 
 	if (myDir < 0){
 		myDir += 360;

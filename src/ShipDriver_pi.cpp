@@ -573,4 +573,18 @@ void ShipDriver_pi::SetNMEASentence(wxString &sentence) {
 		*/
 
 	}
+	if (token[0].Right(3) == _T("HDM")) {
+
+		s1 = token[1];
+
+	//	if (m_pDialog->m_bAuto) {
+
+			double value;
+			s1.ToDouble(&value);
+			m_pDialog->myDir = value;
+	//	}
+
+
+	}
+
 }
